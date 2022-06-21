@@ -13,14 +13,23 @@ afterAll(async () => {
   return destroyDB();
 });
 
-test("Deberian existir tres generos de peliculas", async () => {
-  const genres = await db.getGenres();
-  expect(genres.length).toBeGreaterThanOrEqual(3);
+describe("Test Genres Collection", () => {
+  test("Deberian existir tres generos de peliculas", async () => {
+    const genres = await db.getGenres();
+    expect(genres.length).toBeGreaterThanOrEqual(3);
+  });
+
+  test("Despues de agregar el genero de terror, este debe existir en la base de datos ", async () => {
+    await db.addGenre("Terror");
+    const genres = await db.getGenres();
+    const namesOfGenres = genres.map((genre) => genre.name);
+    expect(namesOfGenres).toContain("Terror");
+  });
 });
 
-test("Despues de agregar el genero de terror, este debe existir en la base de datos ", async () => {
-  await db.addGenre("Terror");
-  const genres = await db.getGenres();
-  const namesOfGenres = genres.map((genre) => genre.name);
-  expect(namesOfGenres).toContain("Terror");
+describe("Test Movies Collection", () => {
+  test("Deberian existir tres peliculas", async () => {
+    const movies = await db.getMovies();
+    expect(movies.length).toBeGreaterThanOrEqual(3);
+  });
 });
