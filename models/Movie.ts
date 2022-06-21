@@ -3,3 +3,7 @@ export type Movie = {
   year: number;
   genres: string[];
 };
+
+export type MovieWithId = Movie & {
+  _id: string;
+};

@@ -33,21 +33,39 @@ describe("Test Movies Collection", () => {
     expect(movies.length).toBeGreaterThanOrEqual(3);
   });
 
-  test("Una pelicula deberia llamarse Titanic", async () => {
+  test("Deberia poder agregarse Star Wars como pelicula", async () => {
+    const movie = {
+      title: "Star Wars",
+      year: 1977,
+      genres: ["Accion", "Ciencia Ficcion"],
+    };
+    await db.addMovie(movie);
     const movies = await db.getMovies();
-    const titles = movies.map((movie) => movie.title);
-    expect(titles).toContain("Titanic");
+    const titlesOfMovies = movies.map((movie) => movie.title);
+    expect(titlesOfMovies).toContain("Star Wars");
   });
 
-  test("Una pelicula deberia llamarse Avatar", async () => {
+  test("Deberia poder agregarse Titanic como pelicula", async () => {
+    const movie = {
+      title: "Titanic",
+      year: 1997,
+      genres: ["Drama", "Romance"],
+    };
+    await db.addMovie(movie);
     const movies = await db.getMovies();
-    const titles = movies.map((movie) => movie.title);
-    expect(titles).toContain("Titanic");
+    const titlesOfMovies = movies.map((movie) => movie.title);
+    expect(titlesOfMovies).toContain("Titanic");
   });
 
-  test("Una pelicula deberia llamarse Star Wars", async () => {
+  test("Deberia poder agregarse El Padrino como pelicula", async () => {
+    const movie = {
+      title: "El Padrino",
+      year: 1972,
+      genres: ["Drama", "Ciencia Ficcion"],
+    };
+    await db.addMovie(movie);
     const movies = await db.getMovies();
-    const titles = movies.map((movie) => movie.title);
-    expect(titles).toContain("Star Wars");
+    const titlesOfMovies = movies.map((movie) => movie.title);
+    expect(titlesOfMovies).toContain("El Padrino");
   });
 });

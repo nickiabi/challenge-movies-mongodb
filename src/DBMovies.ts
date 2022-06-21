@@ -2,13 +2,15 @@ import { Genre, GenreCollection } from "../models/Genre";
 import { Movie } from "../models/Movie";
 
 class DBMovies {
+  async addMovie(movie: Movie) {
+    throw new Error("Method not implemented.");
+  }
   async getMovies(): Promise<Movie[]> {
-    //code here
-    return [];
+    throw new Error("Method not implemented.");
   }
 
   async addGenre(genre: string) {
-    //code here
+    throw new Error("Method not implemented.");
   }
 
   async getGenres(): Promise<Genre[]> {
