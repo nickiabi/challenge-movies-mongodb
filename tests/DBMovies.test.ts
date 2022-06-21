@@ -32,4 +32,22 @@ describe("Test Movies Collection", () => {
     const movies = await db.getMovies();
     expect(movies.length).toBeGreaterThanOrEqual(3);
   });
+
+  test("Una pelicula deberia llamarse Titanic", async () => {
+    const movies = await db.getMovies();
+    const titles = movies.map((movie) => movie.title);
+    expect(titles).toContain("Titanic");
+  });
+
+  test("Una pelicula deberia llamarse Avatar", async () => {
+    const movies = await db.getMovies();
+    const titles = movies.map((movie) => movie.title);
+    expect(titles).toContain("Titanic");
+  });
+
+  test("Una pelicula deberia llamarse Star Wars", async () => {
+    const movies = await db.getMovies();
+    const titles = movies.map((movie) => movie.title);
+    expect(titles).toContain("Star Wars");
+  });
 });

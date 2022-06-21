@@ -1,8 +1,10 @@
 import { Genre, GenreCollection } from "../models/Genre";
+import { Movie } from "../models/Movie";
 
 class DBMovies {
   async getMovies(): Promise<Movie[]> {
     //code here
+    return [];
   }
 
   async addGenre(genre: string) {
