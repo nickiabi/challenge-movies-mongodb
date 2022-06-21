@@ -13,10 +13,14 @@ afterAll(async () => {
   return destroyDB();
 });
 
-test("Deberian tres generos de peliculas", async () => {
+test("Deberian existir tres generos de peliculas", async () => {
   const genres = await db.getGenres();
-  expect(genres).toHaveLength(3);
-  expect(genres[0].name).toBe("Acción");
-  expect(genres[1].name).toBe("Aventura");
-  expect(genres[2].name).toBe("Ciencia Ficción");
+  expect(genres.length).toBeGreaterThanOrEqual(3);
+});
+
+test("Despues de agregar el genero de terror, este debe existir en la base de datos ", async () => {
+  await db.addGenre("Terror");
+  const genres = await db.getGenres();
+  const namesOfGenres = genres.map((genre) => genre.name);
+  expect(namesOfGenres).toContain("Terror");
 });
