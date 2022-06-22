@@ -12,4 +12,4 @@ export const GenreSchema = new Schema<Genre>({
   name: { type: String, required: true, unique: true },
 });
 
-export const GenreCollection = model<Genre>("Genero", GenreSchema);
+export const GenreCollection = model<Genre>("Genre", GenreSchema);
