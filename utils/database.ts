@@ -6,6 +6,7 @@ export const createDB = async () => {
     { name: "Acción" },
     { name: "Aventura" },
     { name: "Ciencia Ficción" },
+    
   ];
   try {
     const uridb = process.env.URIDB || "mongodb://localhost:27017";

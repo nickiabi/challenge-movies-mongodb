@@ -28,11 +28,6 @@ describe("Test Genres Collection", () => {
 });
 
 describe("Test Movies Collection", () => {
-  test("Deberian existir tres peliculas", async () => {
-    const movies = await db.getMovies();
-    expect(movies.length).toBeGreaterThanOrEqual(3);
-  });
-
   test("Deberia poder agregarse Star Wars como pelicula", async () => {
     const movie = {
       title: "Star Wars",
